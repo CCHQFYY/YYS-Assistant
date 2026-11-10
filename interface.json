@@ -1,0 +1,192 @@
+{
+    "interface_version": 2,
+    "name": "MAAYYS",
+    "label": "MAA阴阳师助手",
+    "title": "MAA阴阳师助手",
+    "version": "0.1.0",
+    "agent": {
+        "child_exec": "./runtime/python.exe",
+        "child_args": [
+            "-u",
+            "./agent/main.py"
+        ]
+    },
+    "controller": [
+        {
+            "name": "Emulator",
+            "label": "模拟器",
+            "description": "通过 ADB 连接安卓模拟器（阴阳师）",
+            "type": "Adb",
+            "display_short_side": 720
+        }
+    ],
+    "resource": [
+        {
+            "name": "Default",
+            "label": "默认资源",
+            "path": [
+                "resource"
+            ]
+        }
+    ],
+    "option": {
+        "Kun28_MaxBattles": {
+            "type": "input",
+            "label": "困28设置",
+            "description": "设置最大战斗次数（点中小怪瞬间计数），达到后立刻停止任务；0=无限循环",
+            "inputs": [
+                {
+                    "name": "max_battles",
+                    "label": "最大战斗次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "description": "点中小怪算一次；填 0 表示无限循环，需手动点停止"
+                }
+            ],
+            "pipeline_override": {
+                "Kun28": {
+                    "custom_action_param": {
+                        "max_battles": "{max_battles}"
+                    }
+                }
+            }
+        },
+        "Event_MaxBattles": {
+            "type": "input",
+            "label": "活动设置",
+            "description": "设置最大挑战次数（点击挑战开始按钮计数），达到后立刻停止任务；0=无限循环",
+            "inputs": [
+                {
+                    "name": "max_battles",
+                    "label": "最大挑战次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "description": "点一次挑战开始算一次；填 0 表示无限循环，需手动点停止"
+                }
+            ],
+            "pipeline_override": {
+                "Event": {
+                    "custom_action_param": {
+                        "max_battles": "{max_battles}"
+                    }
+                }
+            }
+        },
+        "General_MaxBattles": {
+            "type": "input",
+            "label": "通用设置",
+            "description": "设置最大挑战次数（OCR 识别挑战二字并点击计数），达到后立刻停止任务；0=无限循环",
+            "inputs": [
+                {
+                    "name": "max_battles",
+                    "label": "最大挑战次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "description": "点一次挑战算一次；填 0 表示无限循环，需手动点停止"
+                }
+            ],
+            "pipeline_override": {
+                "General": {
+                    "custom_action_param": {
+                        "max_battles": "{max_battles}"
+                    }
+                }
+            }
+        },
+        "TeamHost_MaxBattles": {
+            "type": "input",
+            "label": "组队房主设置",
+            "description": "设置最大挑战次数（模板识别开始挑战按钮并点击计数），达到后立刻停止任务；0=无限循环",
+            "inputs": [
+                {
+                    "name": "max_battles",
+                    "label": "最大挑战次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "description": "点一次开始挑战算一次；填 0 表示无限循环，需手动点停止"
+                }
+            ],
+            "pipeline_override": {
+                "TeamHost": {
+                    "custom_action_param": {
+                        "max_battles": "{max_battles}"
+                    }
+                }
+            }
+        },
+        "TeamMember_MaxBattles": {
+            "type": "input",
+            "label": "组队队员设置",
+            "description": "设置最大结算次数（识别点击继续并点击计数），达到后立刻停止任务；0=无限循环",
+            "inputs": [
+                {
+                    "name": "max_battles",
+                    "label": "最大结算次数",
+                    "default": "0",
+                    "pipeline_type": "int",
+                    "description": "点一次点击继续算一次；填 0 表示无限循环，需手动点停止"
+                }
+            ],
+            "pipeline_override": {
+                "TeamMember": {
+                    "custom_action_param": {
+                        "max_battles": "{max_battles}"
+                    }
+                }
+            }
+        }
+    },
+    "task": [
+        {
+            "name": "困28",
+            "entry": "Kun28",
+            "default_check": true,
+            "description": "探索副本第28章困难模式，自动进图打小怪循环刷",
+            "option": [
+                "Kun28_MaxBattles"
+            ]
+        },
+        {
+            "name": "活动",
+            "entry": "Event",
+            "default_check": false,
+            "description": "活动副本自动挑战，点击挑战开始后自动战斗并结算",
+            "option": [
+                "Event_MaxBattles"
+            ]
+        },
+        {
+            "name": "通用",
+            "entry": "General",
+            "default_check": false,
+            "description": "任意带挑战按钮的副本自动挑战，OCR 识别挑战二字点击后自动战斗并结算",
+            "option": [
+                "General_MaxBattles"
+            ]
+        },
+        {
+            "name": "组队房主",
+            "entry": "TeamHost",
+            "default_check": false,
+            "description": "组队副本作为房主自动挑战，模板识别开始挑战按钮点击后自动战斗并结算",
+            "option": [
+                "TeamHost_MaxBattles"
+            ]
+        },
+        {
+            "name": "组队队员",
+            "entry": "TeamMember",
+            "default_check": false,
+            "description": "组队副本作为队员自动结算，仅识别点击继续并点击，适合蹭车挂机",
+            "option": [
+                "TeamMember_MaxBattles"
+            ]
+        },
+        {
+            "name": "测试识别",
+            "entry": "TestOcr",
+            "default_check": false,
+            "description": "测试：OCR 识别挑战二字（组队房主同款 ROI），不点击，结果看运行日志"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+# ===== Python =====
+__pycache__/
+*.py[co]
+*$py.class
+/build/
+/dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ===== 运行期本地状态（MXU 启动时自动生成，含本地设�?实例配置�?=====
+/cache/
+/debug/
+/config/
+*.log
+mxu-*.json
+
+# ===== 临时与备�?=====
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.swp
+*~
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== IDE / 编辑�?=====
+.idea/
+.vscode/
+*.iml
+*.suo
+*.user

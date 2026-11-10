@@ -1,0 +1,48 @@
+{
+    "Kun28": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "Kun28",
+        "custom_action_param": {
+            "max_battles": 0
+        }
+    },
+    "Event": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "Event",
+        "custom_action_param": {
+            "max_battles": 0
+        }
+    },
+    "General": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "General",
+        "custom_action_param": {
+            "max_battles": 0
+        }
+    },
+    "TeamHost": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "TeamHost",
+        "custom_action_param": {
+            "max_battles": 0
+        }
+    },
+    "TeamMember": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "TeamMember",
+        "custom_action_param": {
+            "max_battles": 0
+        }
+    },
+    "TestOcr": {
+        "recognition": "DirectHit",
+        "action": "Custom",
+        "custom_action": "TestOcr",
+        "custom_action_param": {}
+    }
+}
