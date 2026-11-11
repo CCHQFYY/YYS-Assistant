@@ -19,7 +19,7 @@ class TeamHost(YYSAction):
             # 模板图：resource/image/team_host/challenge_start.png（ImageCrapper 从红框裁剪）
             # ROI 为放大后的搜索区域（ImageCrapper amplified roi）
             ("ChallengeStart", {"recognition": "TemplateMatch", "template": "team_host/challenge_start.png", "green_mask": True, "roi": [1028, 484, 252, 236]}),
-            ("TapToContinue", {"recognition": "TemplateMatch", "template": "common/TapToContinue.png", "green_mask": True, "roi": [535, 665, 216, 55]}),
+            ("TapToContinue", {"recognition": "TemplateMatch", "template": "common/TapToContinue.png", "green_mask": True, "roi": [535, 644, 216, 76]}),
         ]
         battles = 0         # 已点击开始挑战的次数（= 完成次数）
         last_count_time = 0.0  # 上次计数时间，2 秒内不重复计数

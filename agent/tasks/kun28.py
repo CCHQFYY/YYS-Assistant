@@ -45,7 +45,7 @@ class Kun28(YYSAction):
     def logic(self, context: Context, argv: CustomAction.RunArg) -> bool:
         targets = [
             ("ConfirmExit", {"recognition": "TemplateMatch", "template": "kun28/ConfirmExit.png", "green_mask": True, "roi": [692, 378, 167, 52]}),
-            ("TapToContinue", {"recognition": "TemplateMatch", "template": "common/TapToContinue.png", "green_mask": True, "roi": [535, 665, 216, 55]}),
+            ("TapToContinue", {"recognition": "TemplateMatch", "template": "common/TapToContinue.png", "green_mask": True, "roi": [535, 644, 216, 76]}),
             ("MonsterTarget", {"recognition": "TemplateMatch", "template": "kun28/monster_target.png", "green_mask": True, "roi": [57, 122, 1223, 504]}),
             ("ExploreButton", {"recognition": "TemplateMatch", "template": "kun28/explore_button.png", "green_mask": True, "roi": [1032, 543, 200, 161]}),
             ("SeekForward", {"recognition": "TemplateMatch", "template": "kun28/seek_forward.png", "green_mask": True, "roi": [637, 527, 269, 193]}),

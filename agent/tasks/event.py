@@ -17,7 +17,7 @@ class Event(YYSAction):
     def logic(self, context: Context, argv: CustomAction.RunArg) -> bool:
         targets = [
             ("ChallengeStart", {"recognition": "TemplateMatch", "template": "event/challenge_start.png", "green_mask": True, "roi": [1068, 528, 212, 184]}),
-            ("TapToContinue", {"recognition": "TemplateMatch", "template": "common/TapToContinue.png", "green_mask": True, "roi": [535, 665, 216, 55]}),
+            ("TapToContinue", {"recognition": "TemplateMatch", "template": "common/TapToContinue.png", "green_mask": True, "roi": [535, 644, 216, 76]}),
         ]
         battles = 0         # 已点击挑战开始的次数（= 完成次数）
         last_count_time = 0.0  # 上次计数时间，2 秒内不重复计数
